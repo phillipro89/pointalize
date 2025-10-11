@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pointalize – Project Overview (Root README)</title>
+  <meta name="description" content="Pointalize: credit card optimization, travel rewards, and in-house WordPress plugins for technical SEO and performance. Root README rendered as HTML.">
+  <style>
+    :root { --maxw: 880px; --fg:#111; --muted:#555; --link:#0a66c2; --border:#e5e7eb; --bg:#fff; }
+    * { box-sizing: border-box; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--fg);
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; }
+    .wrap { max-width: var(--maxw); margin: 40px auto; padding: 0 20px; }
+    h1 { font-size: 2rem; margin: 0 0 10px; }
+    h2 { font-size: 1.35rem; margin: 30px 0 12px; }
+    p { margin: 12px 0; }
+    ul { padding-left: 22px; margin: 10px 0; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, Monaco, monospace; }
+    pre { background: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 10px; overflow: auto; border: 1px solid #0b1220; }
+    .hr { height: 1px; background: var(--border); margin: 28px 0; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .lead { color: var(--fg); font-weight: 500; }
+    .muted { color: var(--muted); }
+    .note { padding:12px 14px; border:1px solid var(--border); border-radius:10px; background:#fafafa; }
+    .footer { margin: 32px 0 0; padding-top: 16px; border-top: 1px solid var(--border); font-size: .95rem; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Pointalize</h1>
+      <p class="lead"><strong>Compare credit cards, unlock rewards, and explore travel hacks, stories, and lifestyle perks to make every dollar and mile go further.</strong></p>
+      <p class="muted">Pointalize is an independent, data-driven platform focused on credit card optimization, travel rewards, and smart financial tools. Behind the main website, several in-house WordPress plugins and SEO automation utilities are developed to support content accuracy, structured data, and performance.</p>
+      <p><a href="https://github.com/phillipro89/pointalize" target="_blank" rel="noopener">View source code and downloads on GitHub</a></p>
+    </header>
+
+    <div class="hr"></div>
+
+    <section id="purpose">
+      <h2>Purpose</h2>
+      <p>The Pointalize ecosystem combines editorial content, analytics tools, and technical SEO components to deliver high-quality, trustworthy insights into:</p>
+      <ul>
+        <li>Credit card points and miles strategies</li>
+        <li>Reward program comparisons and value calculators</li>
+        <li>Travel hacks and real-world redemption guides</li>
+        <li>Technical SEO and automation infrastructure</li>
+      </ul>
+      <p>All plugins and backend components are built to improve transparency, automation, and user experience — both for readers and for the platform itself.</p>
+    </section>
+
+    <section id="philosophy">
+      <h2>Development Philosophy</h2>
+      <ul>
+        <li><strong>Clean PHP</strong> — no unnecessary dependencies or frameworks</li>
+        <li><strong>Technical SEO-first</strong> — structured data, schema validation, and performance optimization</li>
+        <li><strong>WordPress native</strong> — built to integrate seamlessly with custom post types, taxonomies, and page templates</li>
+        <li><strong>Open and extensible</strong> — all plugins are designed to be modular and adaptable</li>
+      </ul>
+      <p>These plugins are gradually being published under the Pointalize namespace to support open-source collaboration.</p>
+    </section>
+
+    <section id="plugins">
+      <h2>WordPress Plugin Collection</h2>
+      <h3>1. Pointalize FAQ Markup</h3>
+      <p>Automatically generates FAQPage JSON-LD structured data from <code>&lt;details class="faq-item"&gt;</code> blocks in WordPress content. Simple, lightweight, and 100% compliant with Google’s structured data guidelines.<br>
+      <a href="./pointalize-faq-markup/">View plugin folder</a></p>
+    </section>
+
+    <section id="structure">
+      <h2>Repository Structure</h2>
+      <pre><code>/pointalize
+├── README.md                     ← You are here
+├── pointalize-faq-markup/        ← First public WordPress plugin
+│   ├── pointalize-faq-markup.php
+│   ├── readme.txt
+│   └── assets/
+└── (future plugins)/</code></pre>
+    </section>
+
+    <section id="installation">
+      <h2>Installation</h2>
+      <p>Each plugin can be installed independently:</p>
+      <ol>
+        <li>Download the plugin ZIP file (e.g., <code>pointalize-faq-markup.zip</code>)</li>
+        <li>In WordPress, go to <em>Plugins → Add New → Upload Plugin</em></li>
+        <li>Upload, install, and activate</li>
+        <li>No setup required — the plugins work automatically upon activation</li>
+      </ol>
+    </section>
+
+    <section id="license">
+      <h2>License</h2>
+      <p>All Pointalize WordPress plugins are released under the <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank" rel="noopener">GPLv2 or later License</a>. You’re free to use, modify, and redistribute them under the same license terms.</p>
+    </section>
+
+    <section id="author">
+      <h2>Author</h2>
+      <p>Developed by <strong>Phillip Rosenheinrich</strong><br>
+      Founder of <a href="https://pointalize.com" target="_blank" rel="noopener">Pointalize</a></p>
+    </section>
+
+    <footer class="footer">
+      <p>Feedback, feature requests, and collaborations are always welcome. The goal of Pointalize is to combine technical precision, transparency, and creativity — one plugin, one tool, and one story at a time.</p>
+    </footer>
+  </main>
+</body>
+</html>
