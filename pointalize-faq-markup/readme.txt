@@ -94,6 +94,8 @@ Absolutely. It outputs valid, minimal JSON-LD and follows [Google’s FAQPage gu
 * Initial release
 = 1.1 =
 * Simplified even more by removing the faq-item class dependency.
+= 1.2 =
+* Added better documentation on how to use the plugin.
 
 == Screenshots ==
 

@@ -36,7 +36,7 @@ These plugins are gradually being published under the Pointalize namespace to su
 ## WordPress Plugin Collection
 
 ### 1. Pointalize FAQ Markup
-Automatically generates FAQPage JSON-LD structured data from <details class="faq-item"> blocks in WordPress content.
+Automatically generates FAQPage JSON-LD structured data from <details> blocks in WordPress content.
 Simple, lightweight, and 100% compliant with Google’s structured data guidelines.  
 → [View plugin folder](./pointalize-faq-markup)
 
