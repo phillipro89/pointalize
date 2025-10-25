@@ -2,8 +2,8 @@
 /**
  * Plugin Name:       Pointalize FAQ Markup
  * Plugin URI: https://pointalize.com/
- * Description:       Automatically generates FAQPage JSON-LD from <details class="faq-item">…</details> in post/page content (answers output as plain text).
- * Version:           1.2
+ * Description:       Automatically generates FAQPage JSON-LD from <details>…</details> in post/page content (answers output as plain text).
+ * Version:           1.3
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * Author:            Pointalize
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * Rules:
  * - Question = text inside <summary>
- * - Answer   = text inside first <p> after the <summary>, else remaining text in <details>
+ * - Answer   = text inside after the <summary>, else remaining text in <details>
  * - All HTML in answers is stripped → plain text only for clean schema.
  *
  * @param string $html Raw post content (may contain HTML).
@@ -100,6 +100,7 @@ add_action('wp_head', function(){
     $graph = [
         '@context'   => 'https://schema.org',
         '@type'      => 'FAQPage',
+        'name'       => get_the_title(),
         'mainEntity' => $faqs,
     ];
 
