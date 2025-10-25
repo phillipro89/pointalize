@@ -28,7 +28,9 @@ No Gutenberg blocks, no shortcodes, no settings — just clean, automatic schema
 
 ## Example Usage
 
-Add the following to any WordPress post or page:
+In the WordPress block editor, simply add a “Details” block from the block inserter, type your question into the Summary field, and your answer into a paragraph below it — the plugin will automatically detect these blocks and generate valid FAQPage schema for Google Rich Results.
+
+Or add the following manually to your post or page:
 
 ```html
 <details>
@@ -96,7 +98,8 @@ Absolutely. It outputs valid, minimal JSON-LD following [Google’s FAQPage guid
 
 ## Screenshot
 
-Validation in Google’s Rich Results Test showing the generated FAQPage JSON-LD.
+1. Adding an FAQ in the WordPress editor using a native “Details” block.
+2. Validation in Google’s Rich Results Test showing the generated FAQPage JSON-LD.
 
 ---
 

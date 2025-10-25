@@ -35,7 +35,9 @@ All output is generated automatically, following [Google’s official FAQPage gu
 
 = Example Usage =
 
-Add the following to your WordPress post or page:
+In the WordPress block editor, simply add a “Details” block from the block inserter, type your question into the Summary field, and your answer into a paragraph below it — the plugin will automatically detect these blocks and generate valid FAQPage schema for Google Rich Results.
+
+Or add the following manually to your post or page:
 
 <details>
   <summary>How do I enable FAQ markup?</summary>
@@ -95,7 +97,8 @@ Absolutely. It outputs valid, minimal JSON-LD and follows [Google’s FAQPage gu
 
 == Screenshots ==
 
-1. Validation in Google’s Rich Results Test showing the generated FAQPage JSON-LD.
+1. Adding an FAQ in the WordPress editor using a native “Details” block.
+2. Validation in Google’s Rich Results Test showing the generated FAQPage JSON-LD.
 
 == Author ==
 
