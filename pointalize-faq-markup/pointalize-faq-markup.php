@@ -3,7 +3,7 @@
  * Plugin Name:       Pointalize FAQ Markup
  * Plugin URI: https://pointalize.com/
  * Description:       Automatically generates FAQPage JSON-LD from <details class="faq-item">…</details> in post/page content (answers output as plain text).
- * Version:           1.0
+ * Version:           1.1
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * Author:            Pointalize
@@ -17,11 +17,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Extract Q&A pairs from <details class="faq-item"> blocks within an HTML string.
+ * Extract Q&A pairs from <details> blocks within an HTML string.
  *
  * Rules:
  * - Question = text inside <summary>
- * - Answer   = text inside <div class="faq-content"> if present, else first <p>
+ * - Answer   = text inside first <p> after the <summary>, else remaining text in <details>
  * - All HTML in answers is stripped → plain text only for clean schema.
  *
  * @param string $html Raw post content (may contain HTML).
@@ -31,34 +31,38 @@ function pointalize_faq_extract( $html ) {
     $faqs = [];
     if ( ! $html || stripos( $html, '<details' ) === false ) return $faqs;
 
-    // Match all <details class="faq-item">...</details>
-    if ( ! preg_match_all('/<details[^>]*class="[^"]*\\bfaq-item\\b[^"]*"[^>]*>(.*?)<\\/details>/is', $html, $items) ) {
+    // Match all <details>...</details> blocks (any <details>, no class required)
+    if ( ! preg_match_all('/<details[^>]*>(.*?)<\/details>/is', $html, $items) ) {
         return $faqs;
     }
 
     foreach ( $items[1] as $block ) {
-        // Question from <summary>
-        if ( ! preg_match('/<summary[^>]*>(.*?)<\\/summary>/is', $block, $qm) ) continue;
+
+        // Extract <summary> (question)
+        if ( ! preg_match('/<summary[^>]*>(.*?)<\/summary>/is', $block, $qm) ) continue;
         $q = trim( wp_strip_all_tags( $qm[1] ) );
         if ( $q === '' ) continue;
 
-        // Answer: prefer .faq-content, else first <p>
+        // Remove the <summary> portion so we can inspect the remaining HTML for the answer
+        $after_summary = preg_replace('/<summary[^>]*>.*?<\/summary>/is', '', $block);
+
+        // Answer: first <p> after <summary>, else fallback to remaining text
         $answer_html = '';
-        if ( preg_match('/<div[^>]*class="[^"]*\\bfaq-content\\b[^"]*"[^>]*>(.*?)<\\/div>/is', $block, $am) ) {
-            $answer_html = trim( $am[1] );
-        } elseif ( preg_match('/<p[^>]*>(.*?)<\\/p>/is', $block, $pm) ) {
+        if ( preg_match('/<p[^>]*>(.*?)<\/p>/is', $after_summary, $pm) ) {
             $answer_html = trim( $pm[1] );
+        } else {
+            $answer_html = trim( $after_summary );
         }
         if ( $answer_html === '' ) continue;
 
         // ---- Strip ALL HTML to plain text ----
-        // Remove shortcodes (e.g., [shortcode]).
+        // Remove shortcodes (e.g., [shortcode])
         $answer_plain = strip_shortcodes( $answer_html );
-        // Strip tags, decode entities (so &amp; -> &), normalize whitespace.
+        // Strip tags, decode entities (so &amp; -> &), normalize whitespace
         $answer_plain = wp_strip_all_tags( $answer_plain, true );
         $answer_plain = html_entity_decode( $answer_plain, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
-        // Collapse multiple spaces/newlines to single spaces.
-        $answer_plain = preg_replace( '/\s+/u', ' ', $answer_plain );
+        // Collapse multiple spaces/newlines to single spaces
+        $answer_plain = preg_replace('/\s+/u', ' ', $answer_plain );
         $answer_plain = trim( $answer_plain );
 
         if ( $answer_plain === '' ) continue;

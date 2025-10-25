@@ -10,7 +10,7 @@ Automatically adds **FAQPage JSON-LD structured data** to WordPress posts and pa
 
 ## Description
 
-**Pointalize FAQ Markup** automatically generates valid [FAQPage JSON-LD](https://developers.google.com/search/docs/appearance/structured-data/faqpage) markup from simple HTML `<details class="faq-item">` blocks in your WordPress posts and pages.
+**Pointalize FAQ Markup** automatically generates valid [FAQPage JSON-LD](https://developers.google.com/search/docs/appearance/structured-data/faqpage) markup from simple HTML `<details>` blocks in your WordPress posts and pages.
 
 No Gutenberg blocks, no shortcodes, no settings — just clean, automatic schema generation for better visibility in Google Search.
 
@@ -18,8 +18,7 @@ No Gutenberg blocks, no shortcodes, no settings — just clean, automatic schema
 
 ## Features
 
-- Detects all `<details class="faq-item">` blocks automatically  
-- Extracts questions from `<summary>` and answers from `<div class="faq-content">` or the first `<p>` tag  
+- Detects all `<details>` blocks and extracts questions and answers automatically.
 - Outputs valid **FAQPage JSON-LD** markup directly in the page `<head>`  
 - Works on posts, pages, and custom post types  
 - Converts answers to plain text for maximum schema compatibility  
@@ -32,12 +31,12 @@ No Gutenberg blocks, no shortcodes, no settings — just clean, automatic schema
 Add the following to any WordPress post or page:
 
 ```html
-<details class="faq-item">
+<details>
   <summary>How do I enable FAQ markup?</summary>
   <p>Simply install and activate the plugin. It automatically detects your FAQ blocks.</p>
 </details>
 
-<details class="faq-item">
+<details>
   <summary>Does it work on pages too?</summary>
   <p>Yes, it supports posts, pages, and custom post types out of the box.</p>
 </details>
@@ -49,25 +48,25 @@ When viewed, valid JSON-LD will automatically appear in your HTML `<head>` — r
 
 ## Installation
 
-**Option 1 – Upload manually**
+**Option 1 – Install from the WordPress Plugin Browser**
+1. Go to **Plugins → Add New**
+2. Search for “Pointalize FAQ Markup”
+3. Click **Install Now**, then **Activate**
+
+**Option 2 – Upload manually**
 1. Download the ZIP file (`pointalize-faq-markup.zip`)
 2. In your WordPress dashboard, go to **Plugins → Add New → Upload Plugin**
 3. Select the ZIP and click **Install Now**
 4. Activate the plugin
 
-**Option 2 – Install from the WordPress Plugin Browser**
-1. Go to **Plugins → Add New**
-2. Search for “Pointalize FAQ Markup”
-3. Click **Install Now**, then **Activate**
-
-After activation, the plugin will automatically detect any `<details class="faq-item">` blocks and generate the corresponding JSON-LD markup.
+After activation, the plugin will automatically detect any `<details>` blocks and generate the corresponding JSON-LD markup.
 
 ---
 
 ## FAQ
 
 **Do I need to configure anything?**  
-No. The plugin works automatically on any post or page containing `<details class="faq-item">` elements.
+No. The plugin works automatically on any post or page containing `<details>` elements.
 
 **Can I use HTML inside my answers?**  
 Yes, but all HTML is stripped before generating JSON-LD. Only plain text is used to ensure compliance with Google’s guidelines.

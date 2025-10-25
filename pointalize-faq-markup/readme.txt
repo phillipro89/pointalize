@@ -4,7 +4,7 @@ Tags: schema, json-ld, structured data, rich results, seo
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,11 +14,10 @@ Automatically adds FAQPage JSON-LD markup to WordPress posts and pages for Googl
 
 Pointalize FAQ Markup automatically adds valid **FAQPage JSON-LD structured data** to your WordPress posts and pages — helping your content qualify for Google’s rich FAQ results.
 
-Simply add collapsible FAQ sections using standard HTML `<details class="faq-item">` blocks, and the plugin will detect them automatically, generate the required JSON-LD markup, and inject it into your page’s `<head>` — no Gutenberg blocks, shortcodes, or extra settings required.
+Simply add collapsible FAQ sections using standard HTML `<details>` blocks, and the plugin will detect them automatically, generate the required JSON-LD markup, and inject it into your page’s `<head>` — no Gutenberg blocks, shortcodes, or extra settings required.
 
 **Main Features:**
-* Detects all `<details class="faq-item">` blocks automatically  
-* Extracts questions from `<summary>` and answers from `<p>` tag  
+* Detects all `<details>` blocks and extracts questions and answers automatically.
 * Outputs valid FAQPage JSON-LD schema for Google Rich Results  
 * Works on posts, pages, and custom post types  
 * Converts answers to plain text for maximum schema compatibility  
@@ -28,23 +27,22 @@ All output is generated automatically, following [Google’s official FAQPage gu
 
 = Features =
 
-* Detects all `<details class="faq-item">` blocks automatically  
-* Extracts questions from `<summary>` and answers from `<div class="faq-content">` or first `<p>` tag  
-* Generates valid **FAQPage JSON-LD** markup  
+* Detects all `<details>` blocks and extracts questions and answers automatically.
+* Outputs valid FAQPage JSON-LD schema for Google Rich Results  
 * Works on posts, pages, and custom post types  
-* Outputs plain-text answers (no HTML)  
-* Zero dependencies, zero bloat — pure PHP  
+* Converts answers to plain text for maximum schema compatibility    
+* No dependencies, no UI, zero bloat — pure PHP simplicity  
 
 = Example Usage =
 
 Add the following to your WordPress post or page:
 
-<details class="faq-item">
+<details>
   <summary>How do I enable FAQ markup?</summary>
   <p>Simply install and activate the plugin. It automatically detects your FAQ blocks.</p>
 </details>
 
-<details class="faq-item">
+<details>
   <summary>Does it work on pages too?</summary>
   <p>Yes, it supports posts, pages, and custom post types out of the box.</p>
 </details>
@@ -55,23 +53,23 @@ When the page is viewed, valid JSON-LD will automatically be output in the `<hea
 
 You can install **Pointalize FAQ Markup** in two simple ways:
 
-= Option 1 — Upload the ZIP manually: =
+= Option 1 — Install directly from WordPress: =
+1. Go to **Plugins → Add New**
+2. Search for “Pointalize FAQ Markup”
+3. Click **Install Now**, then **Activate**
+
+= Option 2 — Upload the ZIP manually: =
 1. Download the plugin ZIP file (`pointalize-faq-markup.zip`)
 2. In your WordPress dashboard, go to **Plugins → Add New → Upload Plugin**
 3. Choose the ZIP file and click **Install Now**
 4. Activate the plugin
 
-= Option 2 — Install directly from WordPress: =
-1. Go to **Plugins → Add New**
-2. Search for “Pointalize FAQ Markup”
-3. Click **Install Now**, then **Activate**
-
-After activation, the plugin will automatically detect any `<details class="faq-item">` blocks in your content and output the corresponding FAQ schema.
+After activation, the plugin will automatically detect any `<details>` blocks in your content and output the corresponding FAQ schema.
 
 == Frequently Asked Questions ==
 
 = Do I need to configure anything? =
-No. The plugin works automatically on any post or page containing `<details class="faq-item">` elements.
+No. The plugin works automatically on any post or page containing `<details>` elements.
 
 = Can I use HTML inside my answers? =
 Yes, but all HTML will be stripped out before creating the JSON-LD markup. Only plain text is used to ensure compliance with Google’s structured data policies.
@@ -92,6 +90,8 @@ Absolutely. It outputs valid, minimal JSON-LD and follows [Google’s FAQPage gu
 
 = 1.0 =
 * Initial release
+= 1.1 =
+* Simplified even more by removing the faq-item class dependency.
 
 == Screenshots ==
 
